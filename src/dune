@@ -1,0 +1,3 @@
+(library
+ (name rosa)
+ (public_name rosa))
