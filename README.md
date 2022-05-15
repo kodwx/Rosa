@@ -1,0 +1,2 @@
+# Rosa
+String manipulation library 
