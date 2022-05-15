@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Visual Studio Code
+/.vscode/
+
+# Dune
+_build/
