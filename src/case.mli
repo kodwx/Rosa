@@ -24,17 +24,20 @@ val lc : string -> string
 
 val capitalize : ?p:int -> string -> string
 (** Converts only the first character of the string to uppercase, using the US-ASCII character set.
-    If p is not 0, then remaining characters of the string will be converted to lowercase as well. 
+    If p is not explicitly set to 1, then remaining characters of the string will be converted to lowercase as well. 
     {[
-      Rosa.Case.capitalize "rosa case";;
+      Rosa.Case.capitalize "roSa case";;
       - : string = "Rosa case"
+
+      Rosa.Case.capitalize ~p:1 "roSa case";;
+      - : string = "RoSa case"
     ]}
  *)
 
 val cap : ?p:int -> string -> string
 (** Same as [capitalize] *)
 
-val cap_at : int -> string -> string
+val cap_at_exn : int -> string -> string
 (** Same as [capitalize] but requires the index of the character to be capitalized.
     Does not alter remaining characters in any way.
     Raises failure if the give index is out of bounds.
@@ -43,6 +46,18 @@ val cap_at : int -> string -> string
       - : string = "roSa"
     ]}
   *)
+
+val cap_at : int -> string -> string
+(** Same as [cap_at_exn] but does not raises any exception 
+    {[
+      Rosa.Case.cap_at 4 "rosa";;
+      - : string = "rosa"
+
+      Rosa.Case.cap_at_exn 4 "rosa";;
+      Exception:
+      Failure "Rosa.Case.cap_at_exn : index 4 is out of bounds, it should lie in [0, 3]".
+    ]}
+ *)
 
 val uncapitalize : ?p:int -> string -> string
 (** Similar to [capitalize]
@@ -55,13 +70,19 @@ val uncapitalize : ?p:int -> string -> string
 val uncap : ?p:int -> string -> string
 (** Same as [uncapitalize] *)
 
-val uncap_at : int -> string -> string
-(** Similar to [cap_at]
+val uncap_at_exn : int -> string -> string
+(** Similar to [cap_at_exn]
     {[
       Rosa.Case.uncap_at 2 "ROSA";;
       - : string = "ROsA"
     ]}
  *)
+
+val uncap_at : int -> string -> string
+(** Similar to [cap_at] *)
+
+
+(** {1 Common case conventions} *)
 
 val camel : string -> string
 (** Converts the given string to camel case. 
@@ -119,3 +140,16 @@ val snake : ?clean:int -> string -> string
 
 val snakecase : ?clean:int -> string -> string
 (** Same as [snake] *)
+
+
+(** {1 Query} *)
+
+val is_lowercase : string -> bool
+
+val is_lc : string -> bool
+(** Same as [is_lowercase] *)
+
+val is_uppercase : string -> bool
+
+val is_uc : string -> bool
+(** Same as [is_uppercase] *)
