@@ -12,8 +12,19 @@ let capitalize ?(p=0) s =
 let cap = capitalize
 
 let cap_at i s =
-  if i < 0 || i > String.length s
-    then failwith (Printf.sprintf "Rosa.Case.cap_at : index %d is out of bounds, it should lie in [0, %d]" i  (String.length s) )
+  if i < 0 || i >= String.length s
+    then s
+  else 
+    let mapf n c =
+      if n = i
+        then Char.uppercase_ascii c
+      else
+        c in
+    s |> String.mapi mapf
+
+let cap_at_exn i s =
+  if i < 0 || i >= String.length s
+    then failwith (Printf.sprintf "Rosa.Case.cap_at : index %d is out of bounds, it should lie in [0, %d]" i  ( (String.length s) - 1 ) )
   else 
     let mapf n c =
       if n = i
@@ -30,8 +41,19 @@ let uncapitalize ?(p=0) s =
 let uncap = uncapitalize
 
 let uncap_at i s =
-  if i < 0 || i > String.length s
-    then failwith (Printf.sprintf "Rosa.Case.uncap_at : index %d is out of bounds, it should lie in [0, %d]" i  (String.length s) )
+  if i < 0 || i >= String.length s
+    then s
+  else 
+    let mapf n c =
+      if n = i
+        then Char.lowercase_ascii c
+      else
+        c in
+    s |> String.mapi mapf
+
+let uncap_at_exn i s =
+  if i < 0 || i >= String.length s
+    then failwith (Printf.sprintf "Rosa.Case.uncap_at : index %d is out of bounds, it should lie in [0, %d]" i  ( (String.length s) - 1 ) )
   else 
     let mapf n c =
       if n = i
@@ -109,3 +131,9 @@ let snake ?(clean = 1) s =
   else
     s |> lowercase |> clf |> cle |> String.split_on_char ' ' |> String.concat "_"
 let snakecase = snake
+
+let is_lowercase s = s = lc s
+let is_lc = is_lowercase
+
+let is_uppercase s = s = uc s
+let is_uc = is_uppercase
