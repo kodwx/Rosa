@@ -129,7 +129,12 @@ let snake ?(clean = 1) s =
   if clean = 0
     then s |> String.split_on_char ' ' |> String.concat "_"
   else
-    s |> lowercase |> clf |> cle |> String.split_on_char ' ' |> String.concat "_"
+    s 
+    |> lowercase 
+    |> clf 
+    |> cle 
+    |> String.split_on_char ' ' 
+    |> String.concat "_"
 let snakecase = snake
 
 let is_lowercase s = s = lc s
