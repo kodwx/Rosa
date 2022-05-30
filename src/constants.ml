@@ -1,12 +1,15 @@
 let digits = "0123456789"
-let octdigits = "01234567"
-let hexdigits = "0123456789abcdefABCDEF"
-let hexdigits_lower = "0123456789abcdef"
-let hexdigits_upper = "0123456789ABCDEF"
+let oct_digits = "01234567"
+let hex_digits = "0123456789abcdefABCDEF"
+let hex_digits_lc = "0123456789abcdef"
+let hex_digits_uc = "0123456789ABCDEF"
 
 let whitespace = "\t\n\r\011\012 "
 let empty = String.empty
 
-let ascii_lower = "abcdefghijklmnopqrstuvwxyz"
-let ascii_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-let ascii_letters = ascii_lower ^ ascii_upper
+let alpha_lower = "abcdefghijklmnopqrstuvwxyz"
+let alpha_lc = alpha_lower
+let alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let alpha_uc = alpha_upper
+let alpha = alpha_lc ^ alpha_uc
+let alphanum = alpha ^ digits

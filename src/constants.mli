@@ -3,16 +3,16 @@
 val digits : string
 (** String "0123456789" *)
 
-val octdigits : string
+val oct_digits : string
 (** String "01234567" *)
 
-val hexdigits : string
+val hex_digits : string
 (** String "0123456789abcdefABCDEF" *)
 
-val hexdigits_lower : string
+val hex_digits_lc : string
 (** String "0123456789abcdef" *)
 
-val hexdigits_upper : string
+val hex_digits_uc : string
 (** String "0123456789ABCDEF" *)
 
 val whitespace : string
@@ -21,12 +21,14 @@ val whitespace : string
 val empty : string
 (** The empty string *)
 
-val ascii_lower : string
+val alpha_lower : string
 (** String "abcdefghijklmnopqrstuvwxyz" *)
 
-val ascii_upper : string
+val alpha_upper : string
 (** String "ABCDEFGHIJKLMNOPQRSTUVWXYZ" *)
 
-val ascii_letters : string
-(** Concatenation of [ascii_lower] and [ascii_upper] *)
+val alpha : string
+(** Concatenation of [alpha_lower] and [alpha_upper] *)
 
+val alphanum : string
+(** Concatenation of [alpha] and [digits] *)

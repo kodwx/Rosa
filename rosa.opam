@@ -1,11 +1,11 @@
 opam-version: "2.0"
-version: "0.1.3"
+version: "0.2.0"
 author: "Tarun Agarwal <me@tarunagarwal.me>"
 maintainer: "Tarun Agarwal <me@tarunagarwal.me>"
 homepage: "https://github.com/kodwx/Rosa"
 bug-reports: "https://github.com/kodwx/Rosa/issues"
 dev-repo: "git+https://github.com/kodwx/Rosa.git"
-doc: "https://ocaml.org/p/rosa/v0.1.0"
+doc: "https://ocaml.org/p/rosa/0.2.0"
 license: "MIT"
 build: [
   ["dune" "build" "-p" name "-j" jobs]
